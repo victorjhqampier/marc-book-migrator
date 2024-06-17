@@ -1,0 +1,23 @@
+create table empresas(
+	idEmpresa int not null identity,
+	cNombre varchar(50) not null,
+	dFechaRegistro Datetime not null default GetDate()
+	primary key (idEmpresa)
+);
+
+create table clientes(
+	idCliente int identity,
+	idEmpresa int not null,
+	idTipoDocumento int not null,
+	cDocumento varchar(50) not null,
+    cNombre varchar(50) not null,
+    cCorreo varchar(50) not null,
+    cNumeroTelefono varchar(50) not null,
+    nDiasRegistro int not null,
+    dFechaRegistro Datetime not null default GetDate(),
+    primary key (idCliente),
+    foreign key (idEmpresa) references empresas(idEmpresa)
+);
+
+
+insert into empresas (cNombre) values ('Camara de compenzancion electronica');
