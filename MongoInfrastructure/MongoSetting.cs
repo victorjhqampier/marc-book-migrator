@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoInfrastructure.Collections;
 using MongoInfrastructure.Commands;
+using MongoInfrastructure.Queries;
 
 /********************************************************************************************************          
 * Copyright © 2024 Victor Jhampier Caxi - All rights reserved.   
@@ -31,6 +32,8 @@ public static class MongoSetting
 
         // Add Dependency Injection
         services.AddTransient<ILoggerInfrastructure, LoggerCommandMongo>();
+        services.AddTransient<IBookCommandInfrastructure, BookCommandInfrastructure>();
+        services.AddTransient<IBookTrackerQueryInfrastructure, LoggerQueryMongo>();
 
         return services;
     }

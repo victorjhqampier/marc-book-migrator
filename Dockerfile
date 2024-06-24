@@ -9,7 +9,7 @@ ENV TZ="America/Lima"
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Domain/Domain.csproj", "Domain/"]
-COPY ["CoredbInfrastructure/CoredbInfrastructure.csproj", "CoredbInfrastructure/"]
+COPY ["ExtractDatabaseInfrastructure/ExtractDatabaseInfrastructure.csproj", "ExtractDatabaseInfrastructure/"]
 COPY ["MongoInfrastructure/MongoInfrastructure.csproj", "MongoInfrastructure/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["CustomerAgreement/CustomerAgreement.csproj", "CustomerAgreement/"]

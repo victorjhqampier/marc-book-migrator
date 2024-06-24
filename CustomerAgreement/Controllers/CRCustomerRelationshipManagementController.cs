@@ -25,8 +25,9 @@ public class CRCustomerRelationshipManagementController : ControllerBase
     {        
         try
         {
-            var result = await _appBook.GetVariableAsync();
-            return StatusCode(result.StatusCode, result);
+            //var result = await _appBook.GetVariableAsync();
+            //return StatusCode(result.StatusCode, result);
+            return Ok();
         }
         catch (Exception ex)
         {

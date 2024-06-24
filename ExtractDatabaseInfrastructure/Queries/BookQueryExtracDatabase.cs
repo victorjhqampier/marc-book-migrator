@@ -15,6 +15,15 @@ public class BookQueryExtracDatabase : IBookQueryInfrastructure
         return _db.Axtitles.Count();
     }
 
+    public List<int> GetPagnateBook(int offset = 0, int limit = 100)
+    {
+        return _db.Axtitles
+            .Select(x=>(int)x.IdTitle)
+            .Skip(offset)
+            .Take(limit)
+            .ToList();
+    }
+
     public async Task<MarcTitleEntity> GetTitleAsync(int idTtile)
     {
         return await _db.Axtitles
@@ -42,6 +51,7 @@ public class BookQueryExtracDatabase : IBookQueryInfrastructure
     {
         return await _db.Axcopies
             .Where(x => x.IdTitle == idTtile)
+            .OrderBy(x=>x.CBarcode)
             .Select(x => new MarcCopyEntity
             {
                 IdCopy = (int)x.IdCopy,

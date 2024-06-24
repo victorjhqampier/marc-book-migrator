@@ -1,5 +1,4 @@
-﻿using Domain.Enums;
-using Domain.Exceptions;
+﻿using Domain.Exceptions;
 using FluentValidation;
 using System.Text.RegularExpressions;
 
@@ -30,7 +29,7 @@ public class MarcTitleEntityValidator : AbstractValidator<MarcTitleEntity>
             .NotEmpty().WithMessage(MessageException.GetErrorByCode(10002, "CDewey")).WithErrorCode("10002")
             .Matches(new Regex("^\\d+(\\.\\d+)?$")).WithMessage(MessageException.GetErrorByCode(10014, "CDewey")).WithErrorCode("10014");
 
-        RuleFor(x => x.NReleased)            
-            .Matches(new Regex("^\\d+$")).When(x=>x.NReleased != string.Empty).WithMessage(MessageException.GetErrorByCode(10014, "CDewey")).WithErrorCode("10014");
+        RuleFor(x => x.CTitle)
+            .NotEmpty().WithMessage(MessageException.GetErrorByCode(10002, "CTitle")).WithErrorCode("10002");
     }
 }

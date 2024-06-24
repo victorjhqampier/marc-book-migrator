@@ -5,5 +5,6 @@ namespace Application.Interfaces;
 
 public interface IBookMigrateApplication
 {
-    public Task<ResponseInternalAdapter> GetVariableAsync();
+    public Task<ResponseInternalAdapter> ProcessAsync();
+    public Task<ResponseInternalAdapter> ReprocessAsync();
 }
